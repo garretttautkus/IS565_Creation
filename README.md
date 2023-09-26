@@ -6,7 +6,7 @@ It is useful in response to incidents regarding compromised accounts.
 
 Script Description:
 
-[bash script image](images/SEPTbash1.png)!
+![bash script image](./images/SEPTbash1.png)
 
 This Bash script is designed for changing the passwords of user accounts on a Unix-like system. It provides a straightforward way to change passwords for all non-system users interactively. Below is an explanation of how the script works:
 
