@@ -8,8 +8,6 @@ Script Description:
 
 The Bash script is designed for unanimously changing the passwords of user accounts on a Unix-like system by providing a straightforward, logical, interactive flow for all non-system users. Below is an explanation of how the script works:
 
-Root Privilege Check:
-
 # Check if the script is run as root
 ```bash
 if [ "$EUID" -ne 0 ]; then
@@ -17,8 +15,6 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 ```
-The resulting intertion will look something like:
-
 
 The script starts by checking whether it is being executed with root (superuser) privileges. It verifies this by examining the effective user ID ($EUID).
 
@@ -52,10 +48,7 @@ This is a function definition for change_password that will be used to change a 
 user_list=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd)
 ```
 This line uses the awk command to extract a list of user accounts from the /etc/passwd file.
-It filters out system users (UID less than 1000) and ensures that the "nobody" user is not included in the list.
-The resulting list of non-system user accounts is stored in the user_list variable.
-
-Loop Through User List and Change Passwords:
+It filters out system users (UID less than 1000) and ensures that the "nobody" user is not included in the list. The resulting list of non-system user accounts is stored in the user_list variable.
 
 # Loop through each user and change their password
 ```
