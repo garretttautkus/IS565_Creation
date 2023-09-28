@@ -76,6 +76,8 @@ done
 
 This loop iterates through each user in the user_list.
 
+![bash script image](./images/SEPTbash.png)
+
 Note: before executing this script, be sure that you have a fall-out plan for re-provisioning users and locking out identified threat actors.
 
 For each user, it calls the change_password function, passing the username as an argument.
