@@ -27,9 +27,8 @@ If the script is not run as root, it displays an error message and exits with an
 
 change_password Function:
 
-bash
-Copy code
 # Function to change a user's password
+```
 change_password() {
   local user="$1"
   echo -n "Enter the new password for $user: "
@@ -46,7 +45,7 @@ change_password() {
     echo "Password for $user has been changed."
   fi
 }
-
+```
 This is a function definition for change_password that will be used to change a user's password interactively.
 
 It prompts the administrator to enter a new password twice (for confirmation), and then checks if the entered passwords match.
@@ -55,25 +54,22 @@ If the passwords match, it uses the chpasswd command to change the user's passwo
 
 Get List of User Accounts:
 
-bash
-Copy code
-
 # Get a list of all user accounts (excluding system users)
+```
 user_list=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd)
-
+```
 This line uses the awk command to extract a list of user accounts from the /etc/passwd file.
 It filters out system users (UID less than 1000) and ensures that the "nobody" user is not included in the list.
 The resulting list of non-system user accounts is stored in the user_list variable.
 
 Loop Through User List and Change Passwords:
 
-bash
-Copy code
 # Loop through each user and change their password
+```
 for user in $user_list; do
   change_password "$user"
 done
-
+```
 This loop iterates through each user in the user_list.
 
 ![bash script image](./images/SEPTbash.png)
