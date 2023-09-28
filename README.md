@@ -19,13 +19,10 @@ fi
 ```
 The resulting intertion will look something like:
 
-![bash script image](./images/SEPTbash1.png)
 
 The script starts by checking whether it is being executed with root (superuser) privileges. It verifies this by examining the effective user ID ($EUID).
 
 If the script is not run as root, it displays an error message and exits with an exit code of 1, indicating an unsuccessful execution.
-
-change_password Function:
 
 # Function to change a user's password
 ```
@@ -46,13 +43,9 @@ change_password() {
   fi
 }
 ```
-This is a function definition for change_password that will be used to change a user's password interactively.
+This is a function definition for change_password that will be used to change a user's password interactively. It prompts the administrator to enter a new password twice (for confirmation), and then checks if the entered passwords match. If the passwords match, it uses the chpasswd command to change the user's password and provides a success message. If the passwords do not match, it displays an error message.
 
-It prompts the administrator to enter a new password twice (for confirmation), and then checks if the entered passwords match.
-
-If the passwords match, it uses the chpasswd command to change the user's password and provides a success message. If the passwords do not match, it displays an error message.
-
-Get List of User Accounts:
+![bash script image](./images/SEPTbash1.png)
 
 # Get a list of all user accounts (excluding system users)
 ```
