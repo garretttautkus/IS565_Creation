@@ -41,6 +41,8 @@ change_password() {
 ```
 This is a function definition for change_password that will be used to change a user's password interactively. It prompts the administrator to enter a new password twice (for confirmation), and then checks if the entered passwords match. If the passwords match, it uses the chpasswd command to change the user's password and provides a success message. If the passwords do not match, it displays an error message.
 
+When the entire sript runs, it will look something like the following:
+
 ![bash script image](./images/SEPTbash1.png)
 
 # Get a list of all user accounts (excluding system users)
