@@ -10,13 +10,13 @@ The Bash script is designed for unanimously changing the passwords of user accou
 
 Root Privilege Check:
 
-bash
-Copy code
 # Check if the script is run as root
+```bash
 if [ "$EUID" -ne 0 ]; then
   echo "This script must be run as root."
   exit 1
 fi
+```
 The resulting intertion will look something like:
 
 ![bash script image](./images/SEPTbash1.png)
