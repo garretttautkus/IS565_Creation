@@ -20,7 +20,7 @@ The script starts by checking whether it is being executed with root (superuser)
 
 If the script is not run as root, it displays an error message and exits with an exit code of 1, indicating an unsuccessful execution.
 
-# Function to change all passwords
+# Function to change all passwords (OCTOBER CREATION)
 ```
 change_all_passwords() {
   local new_password="$1"
