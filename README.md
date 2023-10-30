@@ -20,6 +20,9 @@ The script starts by checking whether it is being executed with root (superuser)
 
 If the script is not run as root, it displays an error message and exits with an exit code of 1, indicating an unsuccessful execution.
 
+# Function to change all passwords
+This script function, unlike the other functionalities, will change all passwords at once without having to specify each user individually or loop through.
+
 # Function to change a user's password
 ```
 change_password() {
