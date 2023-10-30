@@ -35,7 +35,7 @@ change_all_passwords() {
   done
 }
 ```
-This script function, unlike the other functionalities, will change all passwords at once without having to specify each user individually or loop through.
+This script function, unlike the other functionalities, will change all passwords at once without having to specify each user individually or looping through.
 
 # Function to change a user's password
 ```
