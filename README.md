@@ -20,22 +20,33 @@ The script starts by checking whether it is being executed with root (superuser)
 
 If the script is not run as root, it displays an error message and exits with an exit code of 1, indicating an unsuccessful execution.
 
-# Function to change all passwords (OCTOBER CREATION)
+# Function to change all passwords (NOVEMBER CREATION)
 ```
 change_all_passwords() {
   local new_password="$1"
-  
+  local user_list
+
   # Get a list of all user accounts (excluding system users)
-  user_list=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd)
+  if ! user_list=$(getent passwd | awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}'); then
+    echo "Error: Unable to retrieve user list."
+    exit 1
+  fi
 
   # Loop through each user and change their password
   for user in $user_list; do
-    echo "$user:$new_password" | chpasswd
-    echo "Password for $user has been changed."
+    if ! echo "$user:$new_password" | chpasswd; then
+      echo "Failed to change password for $user."
+    else
+      echo "Password for $user has been changed."
+    fi
   done
 }
 ```
+In this version, we added errror handeling to enable users to catch failures while running the code in systems like red hat. The user interface and process remains the same.
+
 This script function, unlike the other functionalities, will change all passwords at once without having to specify each user individually or looping through.
+
+# Other Scripts in File:
 
 # Function to change a user's password
 ```
